@@ -1,0 +1,5 @@
+# emacs caches
+*~
+
+# c object files
+*.o
