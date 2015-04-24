@@ -1,0 +1,47 @@
+==> 04-02.c <==
+#include <stdio.h>
+
+int main(void) {
+  int a, b;
+
+  printf("Input integer number a:\n");
+  scanf("%d", &a);
+
+  printf("Input integer number b:\n");
+  scanf("%d", &b);
+
+  printf("a + b = %d\n", a+b);
+  printf("a - b = %d\n", a-b);
+  printf("a * b = %d\n", a*b);
+  printf("a / b = %d\n", a/b);
+
+  return 0;
+}
+
+==> 05-02.c <==
+#include <stdio.h>
+
+int main(void) {
+  char *s = "ABCD";
+
+  // s[5] is going to null though, is what you want?
+  printf("%c\n", s[5]);
+
+  return 0;
+}
+
+==> 05-03.c <==
+#include <stdio.h>
+#include <string.h>
+
+int main(void) {
+  char *s = "ABCDE";
+  size_t slen = strlen(s);
+  size_t i;
+
+  for (i=0; i < slen-1; ++i) {
+    printf("%c\n", s[i]);
+  }
+
+  return 0;
+}
