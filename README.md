@@ -4,10 +4,10 @@ A course for basic C language by the Nagoya University.
 
 NOTE TO CLASSMATES: you're free to read, copy, and run any program
 source or text file in this repository, BUT, DO NOT hand in any, in
-whole or port, of the files in this repository as reports. Or Prof
+whole or part, of the files in this repository as report. Or Prof
 Kita will (will?) be angry (I guess) LOL
 
-Use this repo with a brave and peaceful brain please :)
+Use this repo with a brave and peaceful mind please :)
 
 - - -
 
