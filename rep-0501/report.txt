@@ -1,0 +1,72 @@
+==> 06-01.txt <==
+1. a < 5
+
+2. b > 0 && b < 3
+
+3. c < -1 || c > 10
+
+4. d != 10
+
+==> 06-02.c <==
+#include <stdio.h>
+
+int main(void) {
+  int a=10;
+  printf("@%X = %d\n", &a, a);
+
+  return 0;
+}
+
+==> 06-04.txt <==
+The value of a prefix increment/decrement term is the value after the
+increment/decrement; in contrast, the value of a postfix
+increment/decrement term is the value before the increment/decrement.
+
+==> 07-01.c <==
+#include <stdio.h>
+
+int main(void) {
+  int x;
+
+  scanf("%d", &x);
+  printf("%d\n", x%2 == 0 ? 0 : 1);
+  //printf("%d\n", x%2);
+
+  return 0;
+}
+
+==> 07-02.c <==
+#include <stdio.h>
+
+int main(void) {
+  int a = 0x0f0f;
+  int b = 0x4567;
+
+  // logical conjunction
+  //
+  // that is, "bitwise and" on the binary representation
+  // of integers
+  //
+  // E.g. 1100 & 1010 == 1000
+  printf("%04X and %04X      --> %04X\n", a, b, a & b);
+
+  // exclusive logical disjunction
+  //
+  // that is, "bitwise xor" on the binary representation
+  // of integers
+  //
+  // E.g. 1100 ^ 1010 == 0110
+  printf("%04X xor %04X      --> %04X\n", a, b, a ^ b);
+
+  // bit shifting
+  //
+  // that is, with the binary representation of an integer,
+  // shift the whole bits to the right or left (right in
+  // this case)
+  //
+  // E.g. 00110111001111 >> 2 == 00001101110011
+  // E.g. 00110111001111 << 2 == 00110111001100
+  printf("%04X shifts right 2 --> %04X\n", a, a >> 2);
+
+  return 0;
+}

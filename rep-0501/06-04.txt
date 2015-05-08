@@ -1,0 +1,3 @@
+The value of a prefix increment/decrement term is the value after the
+increment/decrement; in contrast, the value of a postfix
+increment/decrement term is the value before the increment/decrement.
