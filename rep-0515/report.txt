@@ -3,7 +3,7 @@
   FILE     : 08-02.c
   REF      : http://www.ipl.cs.is.nagoya-u.ac.jp/~prog1/control00.htm
   AUTHOR   : Haochen Xie
-  CREATION : 20150508
+  CREATION : 20150516
  */
 
 #include <stdio.h>
@@ -28,7 +28,7 @@ int main (void) {
   FILE     : 08-03.c
   REF      : http://www.ipl.cs.is.nagoya-u.ac.jp/~prog1/control00.htm
   AUTHOR   : Haochen Xie
-  CREATION : 20150508
+  CREATION : 20150516
  */
 
 #include <stdio.h>
@@ -385,7 +385,7 @@ int main (void) {
   arr[0] = arr[max_idx];
   arr[max_idx] = tmp;
 
-  printf ("The array after swapping ""the largest cell "
+  printf ("The array after swapping the largest cell "
           "with the first one:\n");
   for (i=0; i < m; ++i) {
     printf ("%-2d: %d\n", i, arr[i]);

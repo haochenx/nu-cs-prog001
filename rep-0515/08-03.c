@@ -2,7 +2,7 @@
   FILE     : 08-03.c
   REF      : http://www.ipl.cs.is.nagoya-u.ac.jp/~prog1/control00.htm
   AUTHOR   : Haochen Xie
-  CREATION : 20150508
+  CREATION : 20150516
  */
 
 #include <stdio.h>

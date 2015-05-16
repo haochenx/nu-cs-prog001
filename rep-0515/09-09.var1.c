@@ -29,7 +29,7 @@ int main (void) {
 
   swap(&arr[0], &arr[max_idx]);
 
-  printf ("The array after swapping ""the largest cell "
+  printf ("The array after swapping the largest cell "
           "with the first one:\n");
   for (i=0; i < m; ++i) {
     printf ("%-2d: %d\n", i, arr[i]);
