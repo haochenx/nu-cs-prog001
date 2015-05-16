@@ -1,3 +1,57 @@
+==> 08-02.c <==
+/*
+  FILE     : 08-02.c
+  REF      : http://www.ipl.cs.is.nagoya-u.ac.jp/~prog1/control00.htm
+  AUTHOR   : Haochen Xie
+  CREATION : 20150508
+ */
+
+#include <stdio.h>
+
+int main (void) {
+  int a;
+
+  printf ("Input a number: ");
+  scanf ("%d", &a);
+
+  if (a % 2 == 0) {
+    printf ("%d is an even number.\n", a);
+  } else {
+    printf ("%d is an odd number.\n", a);
+  }
+
+  return 0;
+}
+
+==> 08-03.c <==
+/*
+  FILE     : 08-03.c
+  REF      : http://www.ipl.cs.is.nagoya-u.ac.jp/~prog1/control00.htm
+  AUTHOR   : Haochen Xie
+  CREATION : 20150508
+ */
+
+#include <stdio.h>
+
+int main (void) {
+  int a;
+
+  printf ("Input a number: ");
+  scanf ("%d", &a);
+
+  // hey! so what about a==0??
+  switch (a < 0) {
+  case 1:
+    printf ("%d is a negative number.\n", a);
+    break;
+  case 0:
+    printf ("%d is a positive number.\n", a);
+    break;
+  }
+
+  return 0;
+}
+
 ==> 08-04.c <==
 /*
   FILE     : 08-04.c
@@ -82,6 +136,259 @@ int main (void) {
   for (i=0; i < n; ++i) {
     x = arr[i];
     printf ("%-4d %-6d %-6d\n", x, x * x, x * x * x);
+  }
+
+  return 0;
+}
+
+==> 09-03.c <==
+/*
+  FILE     : 09-03.c
+  REF      : http://www.ipl.cs.is.nagoya-u.ac.jp/~prog1/control01.htm
+  AUTHOR   : Haochen Xie
+  CREATION : 20150516
+ */
+
+#include <stdio.h>
+
+int main (void) {
+  int n, i;
+  int found = 0;
+
+  printf ("Input integer n: ");
+  scanf ("%d", &n);
+
+  for (i=2; i <= n/2; ++i) {
+    if (n % i == 0) {
+      found = 1;
+      break;
+    }
+  }
+
+  if (found) {
+    printf ("%d IS NOT a primary number\n", n);
+  } else {
+    printf ("%d IS a primary number\n", n);
+  }
+
+  return 0;
+}
+
+==> 09-04.c <==
+/*
+  FILE     : 09-04.c
+  REF      : http://www.ipl.cs.is.nagoya-u.ac.jp/~prog1/control01.htm
+  AUTHOR   : Haochen Xie
+  CREATION : 20150516
+ */
+
+#include <stdio.h>
+
+int main (void) {
+  float x, sum = 0;
+  int i;
+
+  printf ("Input 3 numbers: ");
+  for (i=0; i < 3; ++i) {
+    scanf ("%f", &x);
+    sum += x;
+  }
+
+  printf ("The average of the numbers you input is: %f", sum / 3);
+
+  return 0;
+}
+
+==> 09-05.c <==
+/*
+  FILE     : 09-05.c
+  REF      : http://www.ipl.cs.is.nagoya-u.ac.jp/~prog1/control01.htm
+  AUTHOR   : Haochen Xie
+  CREATION : 20150516
+ */
+
+#include <stdio.h>
+
+int main (void) {
+  int i, a, sum = 0;
+
+  printf ("Input an integer: ");
+  scanf ("%d", &a);
+
+  // if we interpret 0~a as [0,a] here
+  for (i=0; i <= a; ++i) {
+    if (i % 3 == 0) {
+      sum += i;
+    }
+  }
+
+  printf ("sum {x | x in [0, %d] AND x is multiple of 3} = %d\n",
+          a, sum);
+
+  return 0;
+}
+
+==> 09-06.c <==
+/*
+  FILE     : 09-06.c
+  REF      : http://www.ipl.cs.is.nagoya-u.ac.jp/~prog1/control01.htm
+  AUTHOR   : Haochen Xie
+  CREATION : 20150516
+ */
+
+#include <stdio.h>
+
+int main (void) {
+  float arr[3], max_val, sum = 0;
+  int i, max_idx;
+
+  // read 3 float numbers from keybroad to arr
+  printf ("Input 3 numbers: ");
+  for (i=0; i < 3; ++i) {
+    scanf ("%f", &arr[i]);
+  }
+
+  // find the max number in arr, store the
+  // max to max_val and the index in max_idx
+  max_val = arr[0];
+  max_idx = 0;
+  for (i=0; i < 3; ++i) {
+    if (arr[i] > max_val) {
+      max_val = arr[i];
+      max_idx = i;
+    }
+  }
+
+  // calculate the sum of the numbers in arr,
+  // which are not the max
+  for (i=0; i < 3; ++i) {
+    if (i != max_idx) {
+      sum += arr[i];
+    }
+  }
+
+  // check against the triangular inequality theorem
+  if (max_val < sum) {
+    printf ("A triangular COULD be drawn "
+            "with 3 sides of the following lengths: \n");
+  } else {
+    printf ("A triangular COULD NOT be drawn "
+            "with 3 sides of the following lengths: \n");
+  }
+
+  // print the input numbers for the user's information
+  for (i=0; i < 3; ++i) {
+    printf ("%f ", arr[i]);
+  }
+  printf ("\n");
+
+  return 0;
+}
+
+==> 09-07.c <==
+/*
+  FILE     : 09-07.c
+  REF      : http://www.ipl.cs.is.nagoya-u.ac.jp/~prog1/control01.htm
+  AUTHOR   : Haochen Xie
+  CREATION : 20150516
+ */
+
+#include <stdio.h>
+
+int main (void) {
+  int arr[10], max;
+  int m, i;
+
+  printf ("Input an integer m (1 <= m <= 10): ");
+  scanf ("%d", &m);
+  printf ("Input m integers:\n");
+  for (i=0; i < m; ++i) {
+    scanf ("%d", &arr[i]);
+  }
+
+  max = arr[0];
+  for (i=0; i < m; ++i) {
+    if (arr[i] > max) {
+      max = arr[i];
+    }
+  }
+
+  printf ("The largest of the m integers you input is %d\n", max);
+
+  return 0;
+}
+
+==> 09-08.c <==
+/*
+  FILE     : 09-08.c
+  REF      : http://www.ipl.cs.is.nagoya-u.ac.jp/~prog1/control01.htm
+  AUTHOR   : Haochen Xie
+  CREATION : 20150516
+ */
+
+#include <stdio.h>
+
+int main (void) {
+  int arr[10], max_idx;
+  int m, i;
+
+  printf ("Input an integer m (1 <= m <= 10): ");
+  scanf ("%d", &m);
+  printf ("Input m integers:\n");
+  for (i=0; i < m; ++i) {
+    scanf ("%d", &arr[i]);
+  }
+
+  max_idx = 0;
+  for (i=0; i < m; ++i) {
+    if (arr[i] > arr[max_idx]) {
+      max_idx = i;
+    }
+  }
+
+  printf ("The no. %d of the m integers you input is the largest, "
+          "which is %d\n",
+          max_idx + 1, arr[max_idx]);
+
+  return 0;
+}
+
+==> 09-09.c <==
+/*
+  FILE     : 09-09.c
+  REF      : http://www.ipl.cs.is.nagoya-u.ac.jp/~prog1/control01.htm
+  AUTHOR   : Haochen Xie
+  CREATION : 20150516
+ */
+
+#include <stdio.h>
+
+int main (void) {
+  int arr[10], max_idx, tmp;
+  int m, i;
+
+  printf ("Input an integer m (1 <= m <= 10): ");
+  scanf ("%d", &m);
+  printf ("Input m integers:\n");
+  for (i=0; i < m; ++i) {
+    scanf ("%d", &arr[i]);
+  }
+
+  max_idx = 0;
+  for (i=0; i < m; ++i) {
+    if (arr[i] > arr[max_idx]) {
+      max_idx = i;
+    }
+  }
+
+  tmp = arr[0];
+  arr[0] = arr[max_idx];
+  arr[max_idx] = tmp;
+
+  printf ("The array after swapping ""the largest cell "
+          "with the first one:\n");
+  for (i=0; i < m; ++i) {
+    printf ("%-2d: %d\n", i, arr[i]);
   }
 
   return 0;
