@@ -4,3 +4,5 @@
 !report.txt
 !*.c
 !*.txt
+
+!init
