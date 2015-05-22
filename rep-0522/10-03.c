@@ -14,13 +14,18 @@ int main (void) {
 
   fin = fopen ("init", "r");
 
-  fscanf (fin, "%f", &x1);
-  fscanf (fin, "%f", &x2);
-  fscanf (fin, "%f", &x3);
+  if (fin) {
+    fscanf (fin, "%f", &x1);
+    fscanf (fin, "%f", &x2);
+    fscanf (fin, "%f", &x3);
 
-  y = x1 * x1 + x2 * x2 + x3 * x3;
+    y = x1 * x1 + x2 * x2 + x3 * x3;
 
-  printf ("Result = %f\n", y);
+    printf ("Result = %f\n", y);
+  } else {
+    printf ("file not found.\n");
+    return 1;
+  }
 
   return 0;
 }
