@@ -1,0 +1,210 @@
+==> 10-01.c <==
+/*
+  FILE     : 10-01.c
+  REF      : http://www.ipl.cs.is.nagoya-u.ac.jp/~prog1/io.htm
+  AUTHOR   : Haochen Xie
+  CREATION : 20150522
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main (void) {
+  int a;
+  FILE *fin, *fout;
+
+  fin = fopen ("init", "r");
+  fout = fopen ("res", "w");
+
+  if (fin && fout) {
+    fscanf (fin, "%d", &a);
+    fprintf (fout, "%d\n", a);
+  } else {
+    printf ("file not found.");
+    return 1;
+  }
+
+  fclose (fin);
+  fclose (fout);
+
+  return 0;
+}
+
+
+==> 10-02.c <==
+/*
+  FILE     : 10-02.c
+  REF      : http://www.ipl.cs.is.nagoya-u.ac.jp/~prog1/io.htm
+  AUTHOR   : Haochen Xie
+  CREATION : 20150522
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main (void) {
+  float x1, x2, x3, y;
+
+  fscanf (stdin, "%f", &x1);
+  fscanf (stdin, "%f", &x2);
+  fscanf (stdin, "%f", &x3);
+
+  y = x1 * x1 + x2 * x2 + x3 * x3;
+
+  printf ("Result = %f\n", y);
+
+  return 0;
+}
+
+
+==> 10-03.c <==
+/*
+  FILE     : 10-03.c
+  REF      : http://www.ipl.cs.is.nagoya-u.ac.jp/~prog1/io.htm
+  AUTHOR   : Haochen Xie
+  CREATION : 20150522
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main (void) {
+  float x1, x2, x3, y;
+  FILE *fin;
+
+  fin = fopen ("init", "r");
+
+  if (fin) {
+    fscanf (fin, "%f", &x1);
+    fscanf (fin, "%f", &x2);
+    fscanf (fin, "%f", &x3);
+
+    y = x1 * x1 + x2 * x2 + x3 * x3;
+
+    printf ("Result = %f\n", y);
+  } else {
+    printf ("file not found.\n");
+    return 1;
+  }
+
+  return 0;
+}
+
+
+==> 10-04.c <==
+/*
+  FILE     : 10-04.c
+  REF      : http://www.ipl.cs.is.nagoya-u.ac.jp/~prog1/io.htm
+  AUTHOR   : Haochen Xie
+  CREATION : 20150522
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main (void) {
+  float x1, x2, x3, y;
+  FILE *fin, *fout;
+
+  fin = fopen ("init", "r");
+  fout = fopen ("result", "w");
+
+  if (fin && fout) {
+    fscanf (fin, "%f", &x1);
+    fscanf (fin, "%f", &x2);
+    fscanf (fin, "%f", &x3);
+
+    y = x1 * x1 + x2 * x2 + x3 * x3;
+
+    fprintf (fout, "Result = %f\n", y);
+  } else {
+    printf ("file not found.\n");
+    return 1;
+  }
+
+  return 0;
+}
+
+
+==> 11-01.c <==
+/*
+  FILE     : 11-01.c
+  REF      : http://www.ipl.cs.is.nagoya-u.ac.jp/~prog1/priprocessor.htm
+  AUTHOR   : Haochen Xie
+  CREATION : 20150522
+ */
+
+#include <stdio.h>
+#define PrnChar(str) {printf("%s\n",str);};
+
+int main (void) {
+  char *s = "August";
+  PrnChar (s);
+
+  return 0;
+}
+
+
+==> 11-02.c <==
+/*
+  FILE     : 11-02.c
+  REF      : http://www.ipl.cs.is.nagoya-u.ac.jp/~prog1/priprocessor.htm
+  AUTHOR   : Haochen Xie
+  CREATION : 20150522
+ */
+
+#include <stdio.h>
+#define MaxV(x,y) ((x) > (y) ? (x) : (y))
+
+int main (void) {
+  int x, y;
+
+  printf ("Input 2 integers: ");
+  scanf ("%d%d", &x, &y);
+
+  printf ("The larger integer is %d\n", MaxV(x, y));
+
+  return 0;
+}
+
+
+==> 11-03.c <==
+/*
+  FILE     : 11-03.c
+  REF      : http://www.ipl.cs.is.nagoya-u.ac.jp/~prog1/priprocessor.htm
+  AUTHOR   : Haochen Xie
+  CREATION : 20150522
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main (void) {
+  printf ("[Linux command called from program.]\n");
+  system ("ls -la");
+
+  return 0;
+}
+
+==> 11-04.c <==
+/*
+  FILE     : 11-04.c
+  REF      : http://www.ipl.cs.is.nagoya-u.ac.jp/~prog1/priprocessor.htm
+  AUTHOR   : Haochen Xie
+  CREATION : 20150522
+ */
+
+#include <stdio.h>
+#include <math.h>
+
+#define EPS (1.0 / 1000)
+
+int main (void) {
+  double x;
+
+  for (x = 0.0; x < 1.0 + EPS; x += 0.1) {
+    printf ("exp(%3.1f) == %f\n", x, exp (x));
+  }
+
+  return 0;
+}
