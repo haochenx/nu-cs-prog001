@@ -20,4 +20,3 @@ int main (void) {
 int MaxV(int a, int b) {
   return a > b ? a : b;
 }
-

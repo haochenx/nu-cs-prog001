@@ -23,4 +23,3 @@ double f (double x) {
   y = 2 * x + 6;
   return y;
 }
-

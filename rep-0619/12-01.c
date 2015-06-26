@@ -23,4 +23,3 @@ int f (int x) {
   y = 2 * x + 6;
   return y;
 }
-
