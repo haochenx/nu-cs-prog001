@@ -1,0 +1,193 @@
+==> 12-01.c <==
+/*
+  FILE     : 12-01.c
+  REF      : http://www.ipl.cs.is.nagoya-u.ac.jp/~prog1/function01.htm
+  AUTHOR   : Haochen Xie
+  CREATION : 20150626
+ */
+
+#include <stdio.h>
+
+int f (int x);
+
+int main (void) {
+  int x, y;
+  printf (" Input x:\n");
+  scanf ("%d", &x);
+  y = f (x);
+  printf (" f(x) = %d\n", y);
+  return 0;
+}
+
+int f (int x) {
+  int y;
+  y = 2 * x + 6;
+  return y;
+}
+
+==> 12-02.c <==
+/*
+  FILE     : 12-02.c
+  REF      : http://www.ipl.cs.is.nagoya-u.ac.jp/~prog1/function01.htm
+  AUTHOR   : Haochen Xie
+  CREATION : 20150626
+ */
+
+#include <stdio.h>
+
+double f (double x);
+
+int main (void) {
+  double x, y;
+  printf (" Input x:\n");
+  scanf ("%lf", &x);
+  y = f (x);
+  printf (" f(x) = %lg\n", y);
+  return 0;
+}
+
+double f (double x) {
+  double y;
+  y = 2 * x + 6;
+  return y;
+}
+
+==> 12-03.c <==
+/*
+  FILE     : 12-03.c
+  REF      : http://www.ipl.cs.is.nagoya-u.ac.jp/~prog1/function01.htm
+  AUTHOR   : Haochen Xie
+  CREATION : 20150626
+ */
+
+#include <stdio.h>
+
+int sum (int);
+
+int main (void) {
+  int n, ans;
+  printf ("Input n:\n");
+  scanf ("%d", &n);
+  ans = sum(n);
+  printf ("Summation = %d\n", ans);
+  return 0;
+}
+
+int sum (int n) {
+  int sum=0;
+
+  for (int i = 1; i <= n; ++i) {
+    sum += i;
+  }
+
+  return sum;
+}
+
+==> 12-04.c <==
+/*
+  FILE     : 12-04.c
+  REF      : http://www.ipl.cs.is.nagoya-u.ac.jp/~prog1/function01.htm
+  AUTHOR   : Haochen Xie
+  CREATION : 20150626
+ */
+
+#include <stdio.h>
+
+int MaxV(int, int);
+
+int main (void) {
+  int a, b;
+  printf ("Input integer a, b: ");
+  scanf ("%d%d", &a, &b);
+  printf ("max(%d, %d) = %d\n", a, b, MaxV(a, b));
+  return 0;
+}
+
+int MaxV(int a, int b) {
+  return a > b ? a : b;
+}
+
+==> 13-01.c <==
+/*
+  FILE     : 13-01.c
+  REF      : http://www.ipl.cs.is.nagoya-u.ac.jp/~prog1/function02.htm
+  AUTHOR   : Haochen Xie
+  CREATION : 20150626
+ */
+
+#include <stdio.h>
+
+double plus ();
+double x = 1, y = 2;
+
+int main (void) {
+  printf ("%lg + %lg --> %lg\n", x, y, plus(x, y));
+  return 0;
+}
+
+double plus () {
+  return x + y;
+}
+
+==> 13-02.c <==
+/*
+  FILE     : 13-02.c
+  REF      : http://www.ipl.cs.is.nagoya-u.ac.jp/~prog1/function02.htm
+  AUTHOR   : Haochen Xie
+  CREATION : 20150626
+ */
+
+#include <stdio.h>
+
+double plus (double*, double*);
+
+int main (void) {
+  double x = 1, y = 2;
+  printf ("%lg + %lg --> %lg\n", x, y, plus(&x, &y));
+  return 0;
+}
+
+double plus (double *x, double *y) {
+  return *x + *y;
+}
+
+==> 13-03.c <==
+/*
+  FILE     : 13-03.c
+  REF      : http://www.ipl.cs.is.nagoya-u.ac.jp/~prog1/function02.htm
+  AUTHOR   : Haochen Xie
+  CREATION : 20150626
+ */
+
+#include <stdio.h>
+
+void four (double a, double b,
+           double *ans_plus,  double *ans_minus,
+           double *ans_times, double *ans_divide);
+
+int main (void) {
+  double x = 1, y = 2;
+
+  double ans_plus, ans_minus,
+    ans_times, ans_divide;
+
+  four(x, y,
+       &ans_plus,  &ans_minus,
+       &ans_times, &ans_divide);
+
+  printf ("%lg + %lg --> %lg\n", x, y, ans_plus);
+  printf ("%lg - %lg --> %lg\n", x, y, ans_minus);
+  printf ("%lg * %lg --> %lg\n", x, y, ans_times);
+  printf ("%lg / %lg --> %lg\n", x, y, ans_divide);
+
+  return 0;
+}
+
+void four (double a, double b,
+           double *ans_plus,  double *ans_minus,
+           double *ans_times, double *ans_divide) {
+  *ans_plus = a + b;
+  *ans_minus = a - b;
+  *ans_times = a * b;
+  *ans_divide = a / b;
+}
