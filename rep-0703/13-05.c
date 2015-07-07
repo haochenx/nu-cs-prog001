@@ -1,5 +1,5 @@
 /*
-  FILE     : 13-04.c
+  FILE     : 13-05.c
   REF      : http://www.ipl.cs.is.nagoya-u.ac.jp/~prog1/function02.htm
   AUTHOR   : Haochen Xie
   CREATION : 20150707
@@ -7,32 +7,32 @@
 
 #include <stdio.h>
 
-int is_prime (int);
+void is_prime (int x, int *ans);
 
 int main (void) {
-  int x;
+  int x, ans;
 
   printf ("Input an integer: ");
   scanf ("%d", &x);
 
-<<<<<<< HEAD
-  printf ("%d is (1) or isn't (0) an integer: %d\n",
-=======
+  is_prime (x, &ans);
+
   printf ("Whether %d is (1) or not (0) an integer: %d\n",
->>>>>>> rep-0703/ - finish 13-*.c and 14-*.c
-	  x, is_prime(x));
+	  x, ans);
 
   return 0;
 }
 
-int is_prime (int x) {
+void is_prime (int x, int *ans) {
   int i;
 
   for (i = 2; i <= x / 2; ++i) {
     if (x % i == 0) {
-      return 0;
+      *ans = 0;
+      return;
     }
   }
 
-  return 1;
+  *ans = 1;
+  return;
 }
