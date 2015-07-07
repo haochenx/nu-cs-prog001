@@ -1,0 +1,336 @@
+==> 13-04.c <==
+/*
+  FILE     : 13-04.c
+  REF      : http://www.ipl.cs.is.nagoya-u.ac.jp/~prog1/function02.htm
+  AUTHOR   : Haochen Xie
+  CREATION : 20150707
+ */
+
+#include <stdio.h>
+
+int is_prime (int);
+
+int main (void) {
+  int x;
+
+  printf ("Input an integer: ");
+  scanf ("%d", &x);
+
+<<<<<<< HEAD
+  printf ("%d is (1) or isn't (0) an integer: %d\n",
+=======
+  printf ("Whether %d is (1) or not (0) an integer: %d\n",
+>>>>>>> rep-0703/ - finish 13-*.c and 14-*.c
+	  x, is_prime(x));
+
+  return 0;
+}
+
+int is_prime (int x) {
+  int i;
+
+  for (i = 2; i <= x / 2; ++i) {
+    if (x % i == 0) {
+      return 0;
+    }
+  }
+
+  return 1;
+}
+
+==> 13-05.c <==
+/*
+  FILE     : 13-05.c
+  REF      : http://www.ipl.cs.is.nagoya-u.ac.jp/~prog1/function02.htm
+  AUTHOR   : Haochen Xie
+  CREATION : 20150707
+ */
+
+#include <stdio.h>
+
+void is_prime (int x, int *ans);
+
+int main (void) {
+  int x, ans;
+
+  printf ("Input an integer: ");
+  scanf ("%d", &x);
+
+  is_prime (x, &ans);
+
+  printf ("Whether %d is (1) or not (0) an integer: %d\n",
+	  x, ans);
+
+  return 0;
+}
+
+void is_prime (int x, int *ans) {
+  int i;
+
+  for (i = 2; i <= x / 2; ++i) {
+    if (x % i == 0) {
+      *ans = 0;
+      return;
+    }
+  }
+
+  *ans = 1;
+  return;
+}
+
+==> 14-01.c <==
+/*
+  FILE     : 14-01.c
+  REF      : http://www.ipl.cs.is.nagoya-u.ac.jp/~prog1/function03.htm
+  AUTHOR   : Haochen Xie
+  CREATION : 20150707
+ */
+
+#include <stdio.h>
+
+void max_min (int *arr, int arrn, int *max, int *min);
+
+int main (void) {
+  int arr[] = {1, 20, 8, 20, -2, -20};
+  int max, min, n = 6;
+  int i;
+
+  max_min(arr, n, &max, &min);
+
+  for (i = 0; i < n; ++i) {
+    printf ("%d ", arr[i]);
+  }
+  printf ("\nthe (max, min) value of the above array is: \n");
+  printf ("(%d, %d)\n", max, min);
+
+  return 0;
+}
+
+void max_min (int *arr, int arrn, int *max, int *min) {
+  int i;
+  if (arrn <= 0) return;
+
+  *max = *min = arr[0];
+
+  for (i = 0; i < arrn; ++i) {
+    if (arr[i] > *max) {
+      *max = arr[i];
+    } else if (arr[i] < *min) {
+      *min = arr[i];
+    }
+  }
+}
+
+==> 14-02.c <==
+/*
+  FILE     : 14-02.c
+  REF      : http://www.ipl.cs.is.nagoya-u.ac.jp/~prog1/function03.htm
+  AUTHOR   : Haochen Xie
+  CREATION : 20150707
+ */
+
+#include <stdio.h>
+#define DIM 3
+
+void max_min (int (*arr)[], int arrn, int *max, int *min);
+
+int main (void) {
+  int arr[DIM][DIM] = {{1, 20, 8}, {20, -2, -20}, {1, 2, -21}};
+  int max, min, n = 3;
+  int i, j;
+
+  max_min(arr, n, &max, &min);
+
+  for (i = 0; i < n; ++i) {
+    for (j = 0; j < n; ++j) {
+      printf ("%d ", arr[i][j]);
+    }
+    printf ("\n");
+  }
+  printf ("the (max, min) value of the above array is: \n");
+  printf ("(%d, %d)\n", max, min);
+
+  return 0;
+}
+
+void max_min (int arr[DIM][DIM], int arrn, int *max, int *min) {
+  int i, j;
+  if (arrn <= 0) return;
+
+  *max = *min = arr[0][0];
+
+  for (i = 0; i < arrn; ++i)
+    for (j = 0; j < arrn; ++j) {
+      if (arr[i][j] > *max) {
+	*max = arr[i][j];
+      } else if (arr[i][j] < *min) {
+	*min = arr[i][j];
+      }
+    }
+}
+
+==> 14-03.c <==
+/*
+  FILE     : 14-03.c
+  REF      : http://www.ipl.cs.is.nagoya-u.ac.jp/~prog1/function03.htm
+  AUTHOR   : Haochen Xie
+  CREATION : 20150707
+ */
+
+#include <stdio.h>
+
+double dot_product (double *vec1, double *vec2);
+
+int main (void) {
+  double vec1[] = {1, 2, 3};
+  double vec2[] = {4, 5, 6};
+  int i;
+
+  printf ("vec1: \n");
+  for (i = 0; i < 3; ++i) {
+    printf ("%lg ", vec1[i]);
+  }
+  printf ("\n");
+  
+  printf ("vec2: \n");
+  for (i = 0; i < 3; ++i) {
+    printf ("%lg ", vec2[i]);
+  }
+  printf ("\n");
+
+  printf ("the dot product of the above 2 vectors is: %lg\n",
+	  dot_product (vec1, vec2));
+
+  return 0;
+}
+
+double dot_product (double *vec1, double *vec2) {
+  double sum = 0;
+  int i;
+
+  for (i = 0; i < 3; ++i) {
+    sum += vec1[i] * vec2[i];
+  }
+
+  return sum;
+}
+
+==> 14-04.c <==
+/*
+  FILE     : 14-04.c
+  REF      : http://www.ipl.cs.is.nagoya-u.ac.jp/~prog1/function03.htm
+  AUTHOR   : Haochen Xie
+  CREATION : 20150707
+ */
+
+#include <stdio.h>
+
+double dot_product (double *vec1, double *vec2, int dim);
+
+int main (void) {
+  double vec1[] = {1, 2, 3, 5};
+  double vec2[] = {4, 5, 6, 7};
+  int dim = 4;
+  int i;
+
+  printf ("vec1: \n");
+  for (i = 0; i < dim; ++i) {
+    printf ("%lg ", vec1[i]);
+  }
+  printf ("\n");
+  
+  printf ("vec2: \n");
+  for (i = 0; i < dim; ++i) {
+    printf ("%lg ", vec2[i]);
+  }
+  printf ("\n");
+
+  printf ("the dot product of the above 2 vectors is: %lg\n",
+	  dot_product (vec1, vec2, dim));
+
+  return 0;
+}
+
+double dot_product (double *vec1, double *vec2, int dim) {
+  double sum = 0;
+  int i;
+
+  for (i = 0; i < dim; ++i) {
+    sum += vec1[i] * vec2[i];
+  }
+
+  return sum;
+}
+
+==> 14-05.c <==
+/*
+  FILE     : 14-05.c
+  REF      : http://www.ipl.cs.is.nagoya-u.ac.jp/~prog1/function03.htm
+  AUTHOR   : Haochen Xie
+  CREATION : 20150707
+ */
+
+#include <stdio.h>
+
+int main (void) {
+  char *str = "this is some random sentence. haha";
+  int count;
+
+  for (count = 0; str[count] != '\0'; ++count);
+
+  printf ("%s\n", str);
+  printf ("the above string has %d character(s)\n",
+	  count);
+
+  return 0;
+}
+
+==> 15-01.c <==
+/*
+  FILE     : 15-01.c
+  REF      : http://www.ipl.cs.is.nagoya-u.ac.jp/~prog1/function04.htm
+  AUTHOR   : Haochen Xie
+  CREATION : 20150707
+ */
+
+#include <stdio.h>
+
+int main (int argc, char *argv[]) {
+  int i;
+
+  printf ("argc --> %d\n", argc);
+  for (i = 0; i < argc; i++) printf ("argv --> %s\n", argv[i]);
+
+  return 0;
+}
+
+==> 15-02.c <==
+/*
+  FILE     : 15-02.c
+  REF      : http://www.ipl.cs.is.nagoya-u.ac.jp/~prog1/function04.htm
+  AUTHOR   : Haochen Xie
+  CREATION : 20150707
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main (int argc, char *argv[]) {
+  double x, y;
+
+  if (argc < 2+1) {
+    fprintf (stderr, "usage: %s <integer 1> <integer 2>\n",
+	     argv[0]);
+    exit (1);
+  }
+
+  x = atof (argv[1]);
+  y = atof (argv[2]);
+
+  printf ("%lg + %lg --> %lg\n", x, y, x + y);
+  printf ("%lg - %lg --> %lg\n", x, y, x - y);
+  printf ("%lg * %lg --> %lg\n", x, y, x * y);
+  printf ("%lg / %lg --> %lg\n", x, y, x / y);
+
+  return 0;
+}
