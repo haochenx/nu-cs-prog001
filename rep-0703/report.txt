@@ -16,11 +16,7 @@ int main (void) {
   printf ("Input an integer: ");
   scanf ("%d", &x);
 
-<<<<<<< HEAD
-  printf ("%d is (1) or isn't (0) an integer: %d\n",
-=======
   printf ("Whether %d is (1) or not (0) an integer: %d\n",
->>>>>>> rep-0703/ - finish 13-*.c and 14-*.c
 	  x, is_prime(x));
 
   return 0;
