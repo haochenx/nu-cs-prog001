@@ -1,0 +1,10 @@
+*
+!README.md
+!Makefile
+!.gitignore
+!report.txt
+!*.c
+!*.txt
+
+!init*
+init

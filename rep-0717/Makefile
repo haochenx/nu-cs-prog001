@@ -1,0 +1,21 @@
+CC=gcc
+CFLAGS=-O2 -Wall -Wextra -Werror
+
+targets=15-03 15-04 16-01 16-02 16-03 16-04
+obj=
+args=
+
+export obj
+export args
+
+run: $(obj)
+	@echo "*** *** RUN: $(obj) *** ***"
+	@./$(obj) $(args)
+
+report: $(targets:=.c)
+	tail -n+1 $+ > report.txt
+
+clean:
+	rm -f *.o
+	rm -f $(targets)
+
