@@ -1,7 +1,7 @@
 CC=gcc
 CFLAGS=-O2 -Wall -Wextra -Werror
 
-targets=15-03 15-04 16-01 16-02 16-03 16-04
+targets=15-03 16-01 16-02 16-03 16-04
 obj=
 args=
 
