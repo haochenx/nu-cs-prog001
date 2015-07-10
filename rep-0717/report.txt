@@ -1,0 +1,154 @@
+==> 15-03.c <==
+/*
+  FILE     : 15-03.c
+  REF      : http://www.ipl.cs.is.nagoya-u.ac.jp/~prog1/function04.htm
+  AUTHOR   : Haochen Xie
+  CREATION : 20150707
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main (int argc, char *argv[]) {
+  int x, y;
+  int sum, i;
+
+  if (argc < 2+1) {
+    fprintf (stderr, "usage: %s <integer 1> <integer 2>\n",
+	     argv[0]);
+    exit (1);
+  }
+
+  x = atoi (argv[1]);
+  y = atoi (argv[2]);
+
+  sum = 0;
+  for (i = x; i <= y; ++i) {
+    sum += i;
+  }
+
+  printf ("sum {x | x in Z, %d <= x <= %d} --> %d\n", x, y, sum);
+
+  return 0;
+}
+
+==> 16-01.c <==
+/*
+  FILE     : 16-01.c
+  REF      : http://www.ipl.cs.is.nagoya-u.ac.jp/~prog1/saiki.html
+  AUTHOR   : Haochen Xie
+  CREATION : 20150707
+
+  COMMENT : I wrote the solution to 16-01 with recursion style from
+            the very beginning.
+ */
+
+#include <stdio.h>
+
+int rec (int);
+
+int main () {
+  int n;
+
+  printf ("Input integer n: ");
+  scanf ("%d", &n);
+
+  printf ("f(n) --> %d\n", rec(n));
+
+  return 0;
+}
+
+int rec (int n) {
+  if (n < 2) return 1;
+  else return n * n + rec (n - 1);
+}
+
+==> 16-02.c <==
+/*
+  FILE     : 16-02.c
+  REF      : http://www.ipl.cs.is.nagoya-u.ac.jp/~prog1/saiki.html
+  AUTHOR   : Haochen Xie
+  CREATION : 20150707
+ */
+
+#include <stdio.h>
+
+int rec (int);
+
+int main () {
+  int n;
+
+  printf ("Input integer n: ");
+  scanf ("%d", &n);
+
+  printf ("f(n) --> %d\n", rec(n));
+
+  return 0;
+}
+
+int rec (int n) {
+  if (n < 2) return 1;
+  else return n * n + rec (n - 1);
+}
+
+==> 16-03.c <==
+/*
+  FILE     : 16-03.c
+  REF      : http://www.ipl.cs.is.nagoya-u.ac.jp/~prog1/saiki.html
+  AUTHOR   : Haochen Xie
+  CREATION : 20150707
+ */
+
+#include <stdio.h>
+
+int rec (int, int);
+
+int main () {
+  int x, y;
+
+  printf ("Input integer x and y: ");
+  scanf ("%d%d", &x, &y);
+
+  printf ("sum {x | x in Z, %d <= x <= %d} --> %d\n",
+	  x, y, rec (x, y));
+
+  return 0;
+}
+
+int rec (int x, int y) {
+  if (x >= y) return x;
+  else return y + rec (x, y - 1);
+}
+
+==> 16-04.c <==
+/*
+  FILE     : 16-04.c
+  REF      : http://www.ipl.cs.is.nagoya-u.ac.jp/~prog1/saiki.html
+  AUTHOR   : Haochen Xie
+  CREATION : 20150707
+ */
+
+#include <stdio.h>
+
+int rec (int *arr, int n);
+
+int main () {
+  int arr[] = { 39, 66, 100, 20, 24 };
+  int n = 5;
+  int i;
+
+  for (i = 0; i < n; ++i) {
+    printf ("%d ", arr[i]);
+  }
+  printf ("\n");
+
+  printf ("The sum of the above array is %d\n",
+	  rec (arr, n));
+
+  return 0;
+}
+
+int rec (int *arr, int n) {
+  if (n < 2) return arr[0];
+  else return arr[n-1] + rec (arr, n - 1);
+}
